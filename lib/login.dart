@@ -8,6 +8,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  var texto = "";
+  void preencherElemento() => (texto = "Preenchido");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +25,7 @@ class _LoginState extends State<Login> {
                   backgroundColor: Colors.amber,
                 ),
                 textAlign: TextAlign.center,
+                // "$texto",  TODO - IMPLEMENTAR ISSO - EDITAR CAIXA DE TEXTO
               ),
             ),
             Padding(
@@ -35,10 +39,9 @@ class _LoginState extends State<Login> {
             ),
             MaterialButton(
               onPressed: () {
-                // AlertDialog(
-                //   title: Text("Aula 02 Flutter"),
-                //   content: Text("Entrando na aplicação"),
-                // );
+                setState(() {
+                  preencherElemento();
+                });
                 Navigator.pushReplacementNamed(context, "/menu");
               },
               child: Text(
